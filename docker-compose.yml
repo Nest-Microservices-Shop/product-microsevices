@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  products-ms:
+    build:
+      context: ./
+      dockerfile: Dockerfile.prod
+    image: fmyersdev/products-ms:latest
+    environment:
+      - PORT=3001
+      - NATS_SERVERS=nats://nats-server:4222
+      - DATABASE_URL=${PRODUCTS_DATABASE_URL}
